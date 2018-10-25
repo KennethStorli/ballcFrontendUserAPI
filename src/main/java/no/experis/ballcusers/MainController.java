@@ -27,11 +27,21 @@ public class MainController {
 	}
 
 //endpoint to check existence of user
-	//testing
+	//get user by username?
+	//create (Done), delete, update, get all (done), get by username
+
 	
-	@GetMapping(path="/all")
+	@GetMapping(path="/users")
 	public @ResponseBody Iterable<User> getAllUsers() {
 		// This returns a JSON or XML with the users
 		return userRepository.findAll();
 	}
+
+
+	@GetMapping(path="/users/{username}")
+	public @ResponseBody Iterable<User> getUserByName(@PathVariable("username") String username) {
+		// This returns a JSON or XML with the users
+		return userRepository.findByUsername(username);
+	}
+
 }

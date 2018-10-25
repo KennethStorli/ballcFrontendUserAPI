@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>no.experis</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>BallcUserAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>BallcUserAPI</name>
+	<description>Ballc user database</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
