@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import no.experis.ballcusers.User;
 import no.experis.ballcusers.UserRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 
@@ -43,5 +44,12 @@ public class MainController {
 		// This returns a JSON or XML with the users
 		return userRepository.findByUsername(username);
 	}
+
+	@GetMapping(path="/deleteusers/{username}")
+	public String deleteUserByName(@PathVariable("username") String username){
+		userRepository.deleteByUsername(username);
+		return "Success! Probably";
+	}
+
 
 }
