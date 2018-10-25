@@ -15,7 +15,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
 
     @Query("SELECT t FROM User t WHERE username= :searchName")
-    public Iterable<User> findByUsername(@Param("searchName") String searchName);
+    public User findByUsername(@Param("searchName") String searchName);
 
     @Transactional
     void deleteByUsername(String username);

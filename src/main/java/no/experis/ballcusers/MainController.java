@@ -40,15 +40,15 @@ public class MainController {
 
 
 	@GetMapping(path="/users/{username}")
-	public @ResponseBody Iterable<User> getUserByName(@PathVariable("username") String username) {
+	public @ResponseBody User getUserByName(@PathVariable("username") String username) {
 		// This returns a JSON or XML with the users
 		return userRepository.findByUsername(username);
 	}
 
 	@GetMapping(path="/deleteusers/{username}")
-	public String deleteUserByName(@PathVariable("username") String username){
+	public void deleteUserByName(@PathVariable("username") String username){
 		userRepository.deleteByUsername(username);
-		return "Success! Probably";
+
 	}
 
 
