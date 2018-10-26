@@ -62,5 +62,14 @@ public class MainController {
 
 	}
 
+	//{true} or {false}
+	@GetMapping(path="/emails/{email}")
+	public boolean emailExists(@PathVariable("email") String email){
+		Integer result = userRepository.checkEmailExistence(email);
+		if(result==1){
+			return true;
+		}
+		return false;
+	}
 
 }

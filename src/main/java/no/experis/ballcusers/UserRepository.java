@@ -20,4 +20,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Transactional
     void deleteByUsername(String username);
 
+    @Query("SELECT COUNT(1) FROM User t WHERE email= :email")
+    public Integer checkEmailExistence(@Param("email") String email);
+
 }
