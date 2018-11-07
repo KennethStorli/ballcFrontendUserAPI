@@ -33,43 +33,43 @@ public class User {
     	this.admin = admin;
     }
 
-	public Integer getId() {
+	public Integer getUser_id() {
 		return user_id;
 	}
 
-	public void setId(Integer id) {
-		this.user_id = id;
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
 	}
 
-	public String getName(){
+	public String getUsername() {
 		return username;
 	}
 
-	public void setName(String name){
-		this.username = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getPassword(){
-		return password;
-	}
-	public void setPassword(String password){
-		this.password = password;
-	}
-
-	public String getEmail(){
+	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String email){
+
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public Boolean getAdmin(){
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Boolean getAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(Boolean admin){
+	public void setAdmin(Boolean admin) {
 		this.admin = admin;
 	}
-	//Getter/Setters for rest of fields, etc...
-    
 }
