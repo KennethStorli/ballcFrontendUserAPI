@@ -23,8 +23,10 @@ public class MainController {
 		String email = body.get("email");
 		String password = body.get("password");
 		Boolean admin = Boolean.parseBoolean( body.get("admin"));
-
-		return userRepository.save(new User(username, email, password, admin));
+		String trackedPlayers = body.get("tracked_players");
+		String trackedTeams = body.get("tracked_teams");
+		
+		return userRepository.save(new User(username, email, password, admin, trackedPlayers, trackedTeams));
 	}
 
 	@PutMapping("/updateusers/{id}")
@@ -35,6 +37,8 @@ public class MainController {
 		user.setEmail(body.get("email"));
 		user.setPassword(body.get("password"));
 		user.setAdmin(Boolean.parseBoolean(body.get("admin")));
+		user.setTrackedPlayers(body.get("tracked_players"));
+		user.setTrackedTeams(body.get("tracked_teams"));
 
 		return userRepository.save(user);
 	}

@@ -22,16 +22,24 @@ public class User {
     @Column(name="`admin`")
     private Boolean admin;
 
+	@Column(name = "tracked_players")
+    private String trackedPlayers;
+
+	@Column(name = "tracked_teams")
+    private String trackedTeams;
+
     public User() {
 
     }
 
-    public User(String username, String email, String password, Boolean admin) {
-    	this.username = username;
-    	this.email = email;
-    	this.password = password;
-    	this.admin = admin;
-    }
+	public User(String username, String email, String password, Boolean admin, String trackedPlayers, String trackedTeams) {
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.admin = admin;
+		this.trackedPlayers = trackedPlayers;
+		this.trackedTeams = trackedTeams;
+	}
 
 	public Integer getUser_id() {
 		return user_id;
@@ -71,5 +79,21 @@ public class User {
 
 	public void setAdmin(Boolean admin) {
 		this.admin = admin;
+	}
+
+	public String getTrackedPlayers() {
+		return trackedPlayers;
+	}
+
+	public void setTrackedPlayers(String trackedPlayers) {
+		this.trackedPlayers = trackedPlayers;
+	}
+
+	public String getTrackedTeams() {
+		return trackedTeams;
+	}
+
+	public void setTrackedTeams(String trackedTeams) {
+		this.trackedTeams = trackedTeams;
 	}
 }
