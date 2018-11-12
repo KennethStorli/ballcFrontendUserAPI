@@ -24,8 +24,10 @@ public class MainController {
 		String email = body.get("email");
 		String password = body.get("password");
 		Boolean admin = Boolean.parseBoolean( body.get("admin"));
-
-		return userRepository.save(new User(username, email, password, admin));
+		String trackedPlayers = body.get("tracked_players");
+		String trackedTeams = body.get("tracked_teams");
+		
+		return userRepository.save(new User(username, email, password, admin, trackedPlayers, trackedTeams));
 	}
 
 
@@ -33,12 +35,15 @@ public class MainController {
 	@PutMapping("/updateusers/{id}")
 	public User update(@PathVariable int id,
 			@RequestBody Map<String, String> body) {
-		String username = body.get("username");
-		String email = body.get("email");
-		String password = body.get("password");
-		Boolean admin = Boolean.parseBoolean( body.get("admin"));
+		User user = userRepository.findById(id).get();
+		user.setUsername(body.get("username"));
+		user.setEmail(body.get("email"));
+		user.setPassword(body.get("password"));
+		user.setAdmin(Boolean.parseBoolean(body.get("admin")));
+		user.setTrackedPlayers(body.get("tracked_players"));
+		user.setTrackedTeams(body.get("tracked_teams"));
 
-		return userRepository.save(new User(username, email, password, admin));
+		return userRepository.save(user);
 	}
 
 //endpoint to check existence of user

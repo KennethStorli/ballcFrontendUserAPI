@@ -22,54 +22,78 @@ public class User {
     @Column(name="`admin`")
     private Boolean admin;
 
+	@Column(name = "tracked_players")
+    private String trackedPlayers;
+
+	@Column(name = "tracked_teams")
+    private String trackedTeams;
+
     public User() {
 
     }
 
-    public User(String username, String email, String password, Boolean admin) {
-    	this.username = username;
-    	this.email = email;
-    	this.password = password;
-    	this.admin = admin;
-    }
+	public User(String username, String email, String password, Boolean admin, String trackedPlayers, String trackedTeams) {
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.admin = admin;
+		this.trackedPlayers = trackedPlayers;
+		this.trackedTeams = trackedTeams;
+	}
 
-	public Integer getId() {
+	public Integer getUser_id() {
 		return user_id;
 	}
 
-	public void setId(Integer id) {
-		this.user_id = id;
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
 	}
 
-	public String getName(){
+	public String getUsername() {
 		return username;
 	}
 
-	public void setName(String name){
-		this.username = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getPassword(){
-		return password;
-	}
-	public void setPassword(String password){
-		this.password = password;
-	}
-
-	public String getEmail(){
+	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String email){
+
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public Boolean getAdmin(){
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Boolean getAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(Boolean admin){
+	public void setAdmin(Boolean admin) {
 		this.admin = admin;
 	}
-	//Getter/Setters for rest of fields, etc...
-    
+
+	public String getTrackedPlayers() {
+		return trackedPlayers;
+	}
+
+	public void setTrackedPlayers(String trackedPlayers) {
+		this.trackedPlayers = trackedPlayers;
+	}
+
+	public String getTrackedTeams() {
+		return trackedTeams;
+	}
+
+	public void setTrackedTeams(String trackedTeams) {
+		this.trackedTeams = trackedTeams;
+	}
 }
